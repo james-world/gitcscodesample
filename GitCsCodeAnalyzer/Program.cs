@@ -16,8 +16,12 @@ namespace GitCsCodeAnalyzer
 
         static void Main(string[] args)
         {
-            var repo = new GitRepository(new DirectoryInfo(@"D:\Repos\Thomas"));
+            Console.WriteLine("Enter folder path: ");
+            var folder = Console.ReadLine();
+            var repo = new GitRepository(new DirectoryInfo(folder));
             ListNewMethods(repo);
+            Console.WriteLine("Press any key");
+            Console.ReadKey(true);
         }
 
         private static IEnumerable<(string Name, int Count)> GetMethodCounts(string source)
